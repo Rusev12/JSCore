@@ -6,4 +6,4 @@ function printOccurencesNumber(text, word) {
 
 printOccurencesNumber('The waterfall was so high, that the child couldn’t see its peak.',
     'the'
-)
+);

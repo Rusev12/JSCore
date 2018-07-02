@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="JQuery.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <table border="1" id="customers">
+        <tr><th>Name</th><th>Email</th></tr>
+        <tr><td>Eve</td><td>eve@gmail.com</td></tr>
+        <tr><td>Nick</td><td>nick@yahooo.com</td></tr>
+        <tr><td>Didi</td><td>didi@didi.net</td></tr>
+        <tr><td>Tedy</td><td>tedy@tedy.com</td></tr>
+    </table>
+    Email: <input type="text" name="email" />
+    <button onclick="deleteByEmail()">Delete</button>
+    <div id="result" />
+    <script>
+        function deleteByEmail() {
+            let emailValue = $('input[name = email]').eq(0).val();
+            let validEmails = $('td').toArray()
+                .filter((e , i) => i %2 !== 0)
+                .map(e => e.textContent);
+
+            if(validEmails.includes(emailValue)){
+            let elToDelete = $('td').toArray()
+                .filter((e) => e.textContent === emailValue)
+
+            $(elToDelete).parent()[0].remove();
+            $('#result').text("Deleted")
+        } else {
+                $('#result').text("Not found.")
+            }
+        }
+    </script>
+</body>
+</html>
